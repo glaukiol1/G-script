@@ -26,4 +26,9 @@ describe('Variable Class', ( ) => {
         expect(vars['variable1'].getValue()).toEqual('variable1.value')
         expect(vars['variable2'].getValue()).toEqual('variable2.value')
     })
+
+    it('can reassign variable values', ( ) => {
+        vars['variable1'].setValue('variable1.reassigned.value')
+        expect(vars['variable1'].getValue()).toEqual('variable1.reassigned.value')
+    })
 })
