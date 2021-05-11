@@ -1,2 +1,2 @@
-var a = "a"
-b=a
+var a = "Hello!"
+a 
