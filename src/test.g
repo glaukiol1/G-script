@@ -1,3 +1,3 @@
-var a = "{Hello!}"
-a
-1231313131
+var string = "hello"
+string.substring(0,2)
+string.length

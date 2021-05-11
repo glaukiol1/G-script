@@ -35,7 +35,28 @@ class Interpreter {
             Object.keys(this.vars).forEach(key=>{
                 if(line.indexOf(key)!==-1){
                     // line = line.replace(key, this.vars[key].value)
-                    console.log(this.vars[key].value)
+                    if(line.indexOf('.')!==-1){
+                        const action=line.split('.')[1]
+                        var value = this.vars[key].getValue()
+                        if(line.indexOf('(')!==-1){
+                            const functionname = line.split('.')[1].split('(')[0]
+                            var args = line.split('.')[1].split('(')[1]
+                            args = args.substring(0, args.length-1)
+                            const finalArgs = []
+                            args.split(',', 50).forEach(arg=>{
+                                if (!isNaN(arg)){
+                                    finalArgs.push(parseInt(arg))
+                                } else {
+                                    finalArgs.push(arg)
+                                }
+                            })
+                            console.log(value[functionname](...finalArgs))
+                        } else {
+                            console.log(value[action])
+                        }
+                    } else {
+                        console.log(this.vars[key].value)
+                    }
                     dontError=true;
                 }
             })
