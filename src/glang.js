@@ -20,10 +20,10 @@ class Interpreter {
     constructor(file_name,options) {
         this.options = options;
         this.options.indexOf('verbose')!==-1?console.log('Reading File'):''
-        this.file = fs.readFileSync(path.join(__dirname, file_name), 'utf8')
+        this.options!=='line'?this.file = fs.readFileSync(path.join(__dirname, file_name), 'utf8'):''
         this.options.indexOf('verbose')!==-1?console.log('Read File'):''
         this.vars = {} // Define the variables holder
-        this.main()
+        this.options!=='line'?this.main():''
     }
 
     lineTypeHandler(line,i) {
@@ -67,7 +67,7 @@ class Interpreter {
                 if (this.options.indexOf('dev:true')!==-1) {
                     console.log(Error(`Unexpected Expression`).message+' LINE: '+line + ' index: '+i)
                 } else {
-                    console.log(Error(`\nERROR: Unexpected Expression\n\t Line Contents: ${line}\n\t Line Number: ${i+1}`).message)
+                    console.log(Error(`\nSyntaxError: ${line} is not defined\n\t Line Contents: ${line}\n\t Line Number: ${i+1}`).message)
                 }
             }
         }
@@ -93,23 +93,27 @@ class Interpreter {
             try {
                 this.vars[var_name] = new Variable(var_name,var_value,var_type)
             } catch (err) {
-                console.log(
+                console.error(
                     err.message,
                     '\n\t Line Contents: '+line,
                     '\n\t Line Number: '+(i+1)
                 )
-                process.exit(1)
+                this.options!=='line'?process.exit(1):console.log('\n\t -- In Shell mode, not exiting.')
             }
         }
     }
 
-    main() {
-        const lines = this.file.split('\n')
-        var i=0
-        lines.forEach(line=>{
+    main(line) {
+        if(this.options === 'line') {
             this.lineTypeHandler(line,i)
-            i++
-        })
+        } else {
+            const lines = this.file.split('\n')
+            var i=0
+            lines.forEach(line=>{
+                this.lineTypeHandler(line,i)
+                i++
+            })
+        }
     }
 }
 
@@ -122,3 +126,5 @@ if (pvg[pvgl-1].indexOf('.g')!==-1) {
 } else {
     console.log('\n\t'+Error(`ERROR FATAL: The argument at position [-1] is not a glang file (.g).\n`).message)
 }
+
+module.exports = Interpreter;
