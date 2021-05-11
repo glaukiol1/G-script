@@ -7,14 +7,24 @@ class Type {
         this.value=value;
     }
 
-    main() {
+    main(opt) {
         if(!isNaN(this.value)) {
             return Int;
         } else if (this.value[0]==='"'&&this.value[this.value.length-1]==='"') {
             return Str;
         } else {
-            throw Error(`Not valid type! ${this.value}`)
+            if(!opt){
+                if (opt.includes('silence')) {
+                    throw Error(`Not valid type!`)
+                }
+            } else {
+                return `Not valid type!`
+            }
         }
+    }
+
+    print() {
+        console.log(this.value)
     }
 }
 
