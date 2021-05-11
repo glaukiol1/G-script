@@ -5,12 +5,12 @@ const vars = {} // Define the main "vars" object, where the vars will live
 const test_vars = [ // Define the test variables
     {
         name: 'variable1',
-        value: 'variable1.value',
+        value: '"variable1.value"',
         type: 'var'
     },
     {
         name: 'variable2',
-        value: 'variable2.value',
+        value: '"variable2.value"',
         type: 'const'
     }
 ]
@@ -25,8 +25,8 @@ describe('Variable Class', ( ) => {
     })
 
     it('matches the test_vars values', ( ) => {
-        expect(vars['variable1'].getValue()).toEqual('variable1.value')
-        expect(vars['variable2'].getValue()).toEqual('variable2.value')
+        expect(vars['variable1'].getValue()).toEqual('"variable1.value"')
+        expect(vars['variable2'].getValue()).toEqual('"variable2.value"')
     })
 
     it('does not reassign if the variable is a constant', ( ) => {
