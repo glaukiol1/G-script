@@ -49,5 +49,7 @@ Soon there will be a interactive shell, in which you dont need a .g file to run 
   
   - Int (Number)
   - Str (String)
+  - Bool (Boolean) `true` `false`
+  - Obj (Object) `{"Test": "hello!"}`
   
 </details>
