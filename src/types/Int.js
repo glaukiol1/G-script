@@ -4,3 +4,5 @@ class Int {
         this.value = value;
     }
 }
+
+module.exports = Int;

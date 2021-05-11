@@ -30,12 +30,12 @@ class Interpreter {
         let variableRegex = /^var|const .* = .*$/i;
         var dontError = false;
         if(variableRegex.test(line)) {
-            this.variableHandler(line)
+            this.variableHandler(line,i)
         } else {
             Object.keys(this.vars).forEach(key=>{
                 if(line.indexOf(key)!==-1){
                     // line = line.replace(key, this.vars[key].value)
-                    this.vars[key].typeC.print()
+                    console.log(this.vars[key].value)
                     dontError=true;
                 }
             })
@@ -52,7 +52,7 @@ class Interpreter {
         }
     }
 
-    variableHandler(line) {
+    variableHandler(line,i) {
         var var_type;
         if(line.indexOf('var')!==-1){
             var_type='var'
@@ -69,7 +69,16 @@ class Interpreter {
         if(this.vars[var_name]){
             this.vars[var_name].setValue(var_value)
         } else {
-            this.vars[var_name] = new Variable(var_name,var_value,var_type)
+            try {
+                this.vars[var_name] = new Variable(var_name,var_value,var_type)
+            } catch (err) {
+                console.log(
+                    err.message,
+                    '\n\t Line Contents: '+line,
+                    '\n\t Line Number: '+(i+1)
+                )
+                process.exit(1)
+            }
         }
     }
 

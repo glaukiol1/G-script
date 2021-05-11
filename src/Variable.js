@@ -2,10 +2,14 @@ const Type = require('./Type')
 class Variable {
     constructor(var_name, var_value, var_type) {
         this.name = var_name;
-        this.value = var_value;
         this.var_type = var_type;
-        this.typeC = new Type(this.value);
-        this.type = this.typeC.main()
+        this.typeC = new Type(var_value);
+        try {
+            this.type = this.typeC.main()
+        } catch (err) {
+            throw Error(err)
+        }
+        this.value = this.type.value;
     }
 
     getValue() {

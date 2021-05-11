@@ -4,3 +4,5 @@ class Str {
         this.value = value;
     }
 }
+
+module.exports = Str;

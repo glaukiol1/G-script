@@ -1,8 +1,8 @@
 
-class Bool {
+class Obj {
     constructor(value) {
         this.value = value;
     }
 }
 
-module.exports = Bool;
+module.exports = Obj;
