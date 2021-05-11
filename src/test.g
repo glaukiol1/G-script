@@ -1,2 +1,2 @@
 var a = "Hello!"
-a 
+b
