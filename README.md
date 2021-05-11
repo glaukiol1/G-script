@@ -41,3 +41,13 @@ Soon there will be a interactive shell, in which you dont need a .g file to run 
   
 </details>
 
+<details>
+  <summary><b>Data types</b></summary>
+  <br>
+  
+  These are the currently supported data types in G-Lang;
+  
+  - Int (Number)
+  - Str (String)
+  
+</details>
