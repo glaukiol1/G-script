@@ -29,16 +29,16 @@ class Interpreter {
     lineTypeHandler(line,i) {
         let variableRegex = /^var|const .* = .*$/i;
         var dontError = false;
-        Object.keys(this.vars).forEach(key=>{
-            if(line.indexOf(key)!==-1){
-                // line = line.replace(key, this.vars[key].value)
-                this.vars[key].typeC.print()
-                dontError=true;
-            }
-        })
         if(variableRegex.test(line)) {
             this.variableHandler(line)
         } else {
+            Object.keys(this.vars).forEach(key=>{
+                if(line.indexOf(key)!==-1){
+                    // line = line.replace(key, this.vars[key].value)
+                    this.vars[key].typeC.print()
+                    dontError=true;
+                }
+            })
             var lineType = new Type(line)
             if(lineType.main('silence')!==`Not valid type!`) {
                 lineType.print()
