@@ -27,6 +27,7 @@ Soon there will be a interactive shell, in which you dont need a .g file to run 
   - Constant Variables are variables that cant be changed, after they are defined their value will stay the same, and never change.
   - Non-constant Varivales on the other hand, they can be redefined at any time!
   
+  Variables are assigned to a _data type_, which you can find in the section below.
   ```js
   var hello = "Hello!" // This is a Non-constant variable
   const hello = "Hello!" // This is a constant variable
