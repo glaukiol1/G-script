@@ -25,8 +25,8 @@ describe('Variable Class', ( ) => {
     })
 
     it('matches the test_vars values', ( ) => {
-        expect(vars['variable1'].getValue()).toEqual('"variable1.value"')
-        expect(vars['variable2'].getValue()).toEqual('"variable2.value"')
+        expect(vars['variable1'].getValue()).toEqual('variable1.value')
+        expect(vars['variable2'].getValue()).toEqual('variable2.value')
     })
 
     it('does not reassign if the variable is a constant', ( ) => {

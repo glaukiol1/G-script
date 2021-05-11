@@ -4,7 +4,7 @@ const Str = require('./types/Str')
 
 describe('Type Class', ( ) => {
     it('has the correct type', ( ) => {
-        expect(new Type('"hello!"').main()).toEqual(Str)
-        expect(new Type('15').main()).toEqual(Int)
+        expect(new Type('"hello!"').main().value).toEqual('hello!')
+        expect(new Type('15').main().value).toEqual(15)
     })
 })
