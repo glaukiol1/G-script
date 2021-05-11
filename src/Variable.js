@@ -4,7 +4,8 @@ class Variable {
         this.name = var_name;
         this.value = var_value;
         this.var_type = var_type;
-        this.type = new Type(this.value).main()
+        this.typeC = new Type(this.value);
+        this.type = this.typeC.main()
     }
 
     getValue() {
