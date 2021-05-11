@@ -1,3 +1,5 @@
+const Int = require('./types/Int')
+const Str = require('./types/Str')
 
 
 class Type {
@@ -11,7 +13,7 @@ class Type {
         } else if (this.value[0]==='"'&&this.value[this.value.length-1]==='"') {
             return Str;
         } else {
-            throw Error(`Not valid type!`)
+            throw Error(`Not valid type! ${this.value}`)
         }
     }
 }
