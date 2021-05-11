@@ -54,3 +54,5 @@ Soon there will be a interactive shell, in which you dont need a .g file to run 
   - Obj (Object) `{"Test": "hello!"}`
   
 </details>
+
+You can call all traditional JavaScript functions on your variables, for example, you can run `string.substring(0,6)` in G-Lang, it will automatically run the JavaScript function for you.
