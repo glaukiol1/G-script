@@ -20,16 +20,26 @@ class Interpreter {
     }
 
     lineTypeHandler(line) {
-        let variableRegex = /^var .* = .*$/i;
+        let variableRegex = /^var|const .* = .*$/i;
         if(variableRegex.test(line)) {
-            console.log('Variable!')
+            this.variableHandler(line)
         } else {
-            console.log('Not a variable')
+            if (this.options.indexOf('dev:true')!==-1) {
+                console.log(Error(`Unexpected Expression`).message)
+            } else {
+                throw Error(`Unexpected Expression`)
+            }
         }
     }
 
     variableHandler(line) {
-        console.log(line)
+        var var_type;
+        if(line.indexOf('var')!==-1){
+            var_type='var'
+        } else if (line.indexOf('const')!==-1) {
+            var_type='const'
+        }
+        console.log(var_type)
     }
 
     main() {
