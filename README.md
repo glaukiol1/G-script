@@ -17,6 +17,11 @@ $ cd src # go into the src dir
 $ node glang.js dev:true test.g # start the interpreter
 ```
 
+or if your using deno(make sure you allow the permissions)
+```
+deno run glang.js
+```
+
 `dev:true` can also be `dev:false`, its ment to display more data. Also you can put `verbose` instead of `dev:true` to get more loggs on whats happening.
 
 
