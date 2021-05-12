@@ -1,12 +1,20 @@
-# G-Lang (Or G-Script)
+<div align="center">
+  <h1>G-Lang</h1>
+  <p>G-Lang is a programming langauge written fully in JavaScript. </p>
+  <br>
+  <p align="center">
+    <img src="https://img.shields.io/badge/license-MIT-orange.svg"/>
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg">
+    <img alt="language" src="https://img.shields.io/badge/language-Javascript-purple.svg">
+  </p>
+</div>
 
-G-Lang is a programming langauge written fully in JavaScript. It will be a powerful langauge once the development stage is finished.
 
-## Setup
+## :zap: Setup
 
 G-Lang is still in development, but you can still test it out.
 
-## The G-Script interpreter
+### The G-Script interpreter
 
 A interpreter is used to run your `.g` files.
 
@@ -25,7 +33,7 @@ $ deno run glang.js
 `dev:true` can also be `dev:false`, its ment to display more data. Also you can put `verbose` instead of `dev:true` to get more loggs on whats happening.
 
 
-## Interactive Shell
+### Interactive Shell
 
 You can use the G-Script shell by running the src/shell.js file. This will open a interactive shell in the command line, you can test statements here.
 
