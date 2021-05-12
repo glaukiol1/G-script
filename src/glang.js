@@ -27,7 +27,7 @@ class Interpreter {
     }
 
     lineTypeHandler(line,i) {
-        let variableRegex = /^var|const .* = .*$/i;
+        let variableRegex = /[var|const] .* = .*$/i;
         let mathRegex = /[0-9 ].*[+|*|/|-| ][0-9].*$/i
         let match = line.match(mathRegex);
         if(match) {
@@ -38,6 +38,7 @@ class Interpreter {
                 line = line.replace(match[0].split('=')[1], match[0].split('=')[1].replace(match[0].split('=')[1], eval(match[0].split('=')[1])))
             }
         }
+        console.log(variableRegex.test(line))
         var dontError = false;
         if(variableRegex.test(line)) {
             this.variableHandler(line,i)
@@ -98,7 +99,16 @@ class Interpreter {
             var_value=var_value.replace(' ', '')
         }
         if(this.vars[var_name]){
-            this.vars[var_name].setValue(var_value)
+            try {
+                this.vars[var_name].setValue(var_value)
+            } catch (err) {
+                console.error(
+                    err.message,
+                    '\n\t Line Contents: '+line,
+                    '\n\t Line Number: '+(i+1)
+                )
+                this.options!=='line'?process.exit(1):console.log('\n\t -- In Shell mode, not exiting.')
+            }
         } else {
             try {
                 this.vars[var_name] = new Variable(var_name,var_value,var_type)
