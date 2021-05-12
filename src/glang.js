@@ -27,7 +27,8 @@ class Interpreter {
     }
 
     lineTypeHandler(line,i) {
-        let variableRegex = /[var|const] .* = .*$/i;
+        let variableRegex = /^var| .* = .*$/i;
+        let variableRegex2 = /^const| .* = .*$/i;
         let mathRegex = /[0-9 ].*[+|*|/|-| ][0-9].*$/i
         let match = line.match(mathRegex);
         if(match) {
@@ -38,9 +39,8 @@ class Interpreter {
                 line = line.replace(match[0].split('=')[1], match[0].split('=')[1].replace(match[0].split('=')[1], eval(match[0].split('=')[1])))
             }
         }
-        console.log(variableRegex.test(line))
         var dontError = false;
-        if(variableRegex.test(line)) {
+        if(variableRegex.test(line)||variableRegex2.test(line)) {
             this.variableHandler(line,i)
         } else {
             Object.keys(this.vars).forEach(key=>{

@@ -56,7 +56,7 @@ class Variable {
             }
             this.value = this.type.value;
         } else {
-            throw Error(`Can't reassign value to contant variable`)
+            throw Error(`Can't reassign value to constant variable`)
         }
     }
 }
