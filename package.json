@@ -1,6 +1,6 @@
 {
   "name": "g-script",
-  "version": "0.0.1-stable",
+  "version": "0.0.1-stable.patch2",
   "description": "G-Script is a programming lanaguge made by @glaukiol1",
   "main": "src/glang.js",
   "scripts": {
