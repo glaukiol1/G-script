@@ -43,7 +43,13 @@ class Variable {
 
     setValue(new_value) {
         if(this.var_type==='var') {
-            this.value=new_value;
+            this.typeC = new Type(new_value);
+            try {
+                this.type = this.typeC.main()
+            } catch (err) {
+                throw Error(err)
+            }
+            this.value = this.type.value;
         } else {
             throw Error(`Can't reassign value to contant variable`)
         }
