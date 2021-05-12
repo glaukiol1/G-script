@@ -2,6 +2,7 @@ const Type = require('./Type')
 
 const restricedNames = [
     'var',
+    'const',
     '1',
     '2',
     '3',
@@ -14,6 +15,10 @@ const restricedNames = [
     '0',
     'if',
     '=',
+    '""',
+    "''",
+    '"',
+    "'",
     ' ',
     '',
 ]
