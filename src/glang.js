@@ -28,6 +28,16 @@ class Interpreter {
 
     lineTypeHandler(line,i) {
         let variableRegex = /^var|const .* = .*$/i;
+        let mathRegex = /[0-9 ].*[+|*|/|-| ][0-9].*$/i
+        let match = line.match(mathRegex);
+        if(match) {
+            if(!match[0].split('=')[1]) {
+                line = line.replace(match[0], eval(match[0]))
+            } else {
+                // this is one big line
+                line = line.replace(match[0].split('=')[1], match[0].split('=')[1].replace(match[0].split('=')[1], eval(match[0].split('=')[1])))
+            }
+        }
         var dontError = false;
         if(variableRegex.test(line)) {
             this.variableHandler(line,i)
@@ -62,7 +72,7 @@ class Interpreter {
             })
             var lineType = new Type(line)
             if(lineType.main('silence')!==`Not valid type!`) {
-                lineType.print()
+                console.log(lineType.main().value);
             } else if (!dontError) {
                 if (this.options.indexOf('dev:true')!==-1) {
                     console.log(Error(`Unexpected Expression`).message+' LINE: '+line + ' index: '+i)
@@ -123,7 +133,7 @@ const opt = pvg[pvgl-2];
 
 if (pvg[pvgl-1].indexOf('.g')!==-1) {
     new Interpreter(pvg[pvgl-1], opt);
-} else {
+} else if (!opt==="line"){
     console.log('\n\t'+Error(`ERROR FATAL: The argument at position [-1] is not a glang file (.g).\n`).message)
 }
 
