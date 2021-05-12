@@ -14,28 +14,17 @@
 
 G-Lang is still in development, but you can still test it out.
 
-### The G-Script interpreter
-
-A interpreter is used to run your `.g` files.
-
-```sh
-$ git clone https://github.com/glaukiol1/G-script # clone this repo
-$ cd G-script # go into the dir
-$ cd src # go into the src dir
-$ node glang.js dev:true test.g # start the interpreter
+There is a npm package, namely `g-script`, that you can download.
+```js
+$ npm i -g g-script // install the package using the -g arugment!
 ```
 
-or if your using deno(make sure you allow the permissions)
+After that, you now have access to the `glang` command. Command Usage;
 ```sh
-$ deno run glang.js
+$ glang <options> < run | shell > <filename>
 ```
-
-`dev:true` can also be `dev:false`, its ment to display more data. Also you can put `verbose` instead of `dev:true` to get more loggs on whats happening.
-
-
-### Interactive Shell
-
-You can use the G-Script shell by running the src/shell.js file. This will open a interactive shell in the command line, you can test statements here.
+- _\<options>_: `verbose` `verbose;dev:true` `dev:true` `verbose;line` `line`
+- _\<run | shell>_: `run <filename.g>`: runs a file | `shell`: runs a interactive shell.
 
 ## Docs
 
