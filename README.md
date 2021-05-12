@@ -1,6 +1,6 @@
 <div align="center">
   <h1>G-Lang</h1>
-  <p>G-Lang is a programming langauge written fully in JavaScript. </p>
+  <p>G-Lang (G-Script) is a programming langauge written fully in JavaScript. </p>
   <br>
   <p align="center">
     <img src="https://img.shields.io/badge/license-MIT-orange.svg"/>
