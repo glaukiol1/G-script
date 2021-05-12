@@ -6,15 +6,23 @@ G-Lang is a programming langauge written fully in JavaScript. It will be a power
 
 G-Lang is still in development, but you can still test it out.
 
-```sh
-$ git clone https://github.com/glaukiol1/G-script
-$ cd G-script
-$ cd src
-$ node glang.js dev:true test.g
-```
-dev:true can also be dev:false, its ment to display more data. Also you can put "verbose" instead of dev:true to get more loggs on whats happening.
+## The G-Script interpreter
 
-Soon there will be a interactive shell, in which you dont need a .g file to run and test commands.
+A interpreter is used to run your `.g` files.
+
+```sh
+$ git clone https://github.com/glaukiol1/G-script # clone this repo
+$ cd G-script # go into the dir
+$ cd src # go into the src dir
+$ node glang.js dev:true test.g # start the interpreter
+```
+
+`dev:true` can also be `dev:false`, its ment to display more data. Also you can put `verbose` instead of `dev:true` to get more loggs on whats happening.
+
+
+## Interactive Shell
+
+You can use the G-Script shell by running the src/shell.js file. This will open a interactive shell in the command line, you can test statements here.
 
 ## Docs
 
