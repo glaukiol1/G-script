@@ -1,5 +1,5 @@
 {
-  "name": "g-script",
+  "name": "glang",
   "version": "0.0.1-beta",
   "description": "G-lang is a programming lanaguge made by @glaukiol1",
   "main": "src/glang.js",
@@ -16,7 +16,10 @@
     "langauge",
     "javascript"
   ],
-  "author": "@glaukiol1",
+  "bin": {
+    "g": "/src/main.js"
+  },
+  "author": "glaukio",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/glaukiol1/G-script/issues"

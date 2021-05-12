@@ -1,3 +1,4 @@
-var string = "hello"
-string.substring(0,2)
-string.concat(Hello 2)
+var n = 1
+n
+var n = 5
+n

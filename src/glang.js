@@ -20,7 +20,7 @@ class Interpreter {
     constructor(file_name,options) {
         this.options = options;
         this.options.indexOf('verbose')!==-1?console.log('Reading File'):''
-        this.options!=='line'?this.file = fs.readFileSync(path.join(__dirname, file_name), 'utf8'):''
+        this.options!=='line'?this.file = fs.readFileSync(path.join(process.cwd(), file_name), 'utf8'):''
         this.options.indexOf('verbose')!==-1?console.log('Read File'):''
         this.vars = {} // Define the variables holder
         this.options!=='line'?this.main():''
@@ -126,15 +126,4 @@ class Interpreter {
         }
     }
 }
-
-const pvg = process.argv;
-const pvgl = process.argv.length
-const opt = pvg[pvgl-2];
-
-if (pvg[pvgl-1].indexOf('.g')!==-1) {
-    new Interpreter(pvg[pvgl-1], opt);
-} else if (!opt==="line"){
-    console.log('\n\t'+Error(`ERROR FATAL: The argument at position [-1] is not a glang file (.g).\n`).message)
-}
-
 module.exports = Interpreter;
