@@ -26,6 +26,14 @@ $ glang <options> < run | shell > <filename>
 - _\<options>_: `verbose` `verbose;dev:true` `dev:true` `verbose;line` `line`
 - _\<run | shell>_: `run <filename.g>`: runs a file | `shell`: runs a interactive shell.
 
+Example commands;
+```sh
+$ glang run hello.g # run a glang file
+$ glang shell # run the glang shell
+$ glang verbose run hello.g # run a file in verbose mode
+$ glang dev:true run hello.g # run a file in dev mode
+```
+
 ## Docs
 
 <details>
